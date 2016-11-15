@@ -24,22 +24,19 @@ FusionCharts.register('module', ['private', 'modules.renderer.js-extension-capti
                 var extension = this,
                     iapi = extension.chart,
                     config = iapi.config,
-                    chartAttrs = iapi.jsonData.chart,
                     Caption = FusionCharts.register('component', ['caption', 'caption']),
                     components = iapi.components || (iapi.components = {}),
                     caption = components.caption,
-                    subCaption = components.subCaption,
-                    captionConfig = caption.config,
-                    subCaptionConfig = subCaption.config;
+                    captionConfig = caption.config;
 
                 iapi._manageSpace();
                 iapi._postSpaceManagement();
-
+                config.canvasLeft = config.origMarginLeft;
                 caption || (caption = new Caption());
                 caption.init();
                 caption.chart = iapi;
                 caption.configure();
-                caption.manageSpace(config.height);
+                caption.manageSpace(config.height,config.width);
                 captionConfig.drawCaption = true;
                 caption.managePosition();
                 caption && caption.draw();
