@@ -7,7 +7,10 @@ FusionCharts.register('module', ['private', 'modules.renderer.js-extension-capti
 
         chartAPI('caption', {
             standaloneInit: true,
-            friendlyName: 'caption'
+            friendlyName: 'caption',
+            _checkInvalidData : function () {
+
+            }
         }, chartAPI.drawingpad);
 
         FusionCharts.register('component', ['extension', 'caption', {
